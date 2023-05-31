@@ -12,6 +12,7 @@ export interface Session{
     id: string
     name: string
     messages: Message[]
+    starred?: boolean
 }
 
 export function createMessage(role: OpenAIRoleEnumType = OpenAIRoleEnum.User, content: string = ''): Message {
@@ -41,6 +42,7 @@ export interface Settings {
     apiHost: string
     model: string
     maxContextSize: string
+    temperature: number
     maxTokens: string
     showWordCount?: boolean
     showTokenCount?: boolean
@@ -66,4 +68,18 @@ export interface OpenAIMessage {
 
 export interface Config{
     uuid: string
+}
+
+export interface SponsorAd {
+    text: string
+    url: string
+}
+
+export interface SponsorAboutBanner {
+    type: 'picture' | 'picture-text'
+    name: string
+    pictureUrl: string
+    link: string
+    title: string
+    description: string
 }
